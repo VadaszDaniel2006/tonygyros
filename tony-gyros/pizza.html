@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tony Gyros Keszthely - Prémium pizzák friss alapanyagokból. Rendelj online a legfinomabb pizzákért!">
+    <title>Pizza rendelés - Tony Gyros Keszthely</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pizza.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container header-container">
+        <a href="index.html" class="logo">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="letöltés.png" alt="Tony Gyros Logo">
+                </div>
+            </div>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i>Kezdőlap</a></li>
+                <li><a href="pizza.html" class="active"><i class="fas fa-pizza-slice"></i>Pizza rendelés</a></li>
+                <li><a href="gyros.html"><i class="fas fa-utensils"></i>Gyros rendelés</a></li>
+                <li><a href="kosar.html" id="cartBtn"><i class="fas fa-shopping-cart"></i>Kosár <span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero pizza-hero">
+    <div class="container">
+        <h1>Tony Gyros Pizza Menü</h1>
+        <p class="hero-subtitle">Keszthely legjobb pizzái friss alapanyagokból</p>
+        <p class="hero-tagline">Minden pizzánkra érvényes az EXTRA SAJT akció!</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <div class="menu-notice">
+            <div class="notice-badge">AKCIÓ</div>
+            <p>Extra sajt minden pizzára <strong>INGYEN!</strong> Válaszd ki az extráknál!</p>
+        </div>
+
+        <div class="menu-grid" id="pizzaGrid">
+            </div>
+
+        <div class="show-more-container" id="showMoreContainer">
+            <button id="showMorePizzas" class="show-more-btn">
+                <i class="fas fa-pizza-slice"></i> Több pizza megtekintése
+            </button>
+        </div>
+
+        </div>
+</section>
+
+<section class="pizza-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Készülési idő</h3>
+                <p>Pizzáink átlagos készülési ideje 20-25 perc, főzési időtől függően.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Friss alapanyagok</h3>
+                <p>Naponta friss zöldségek és kézzel nyújtott tészta minden pizzánk alapja.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Ingyen szállítás</h3>
+                <p>Keszthely belterületén 5.000 Ft feletti rendelés esetén ingyenes a kiszállítás!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="letöltés.png" alt="Tony Gyros Logo" style="height: 60px; width: auto;">
+                </div>
+                <p>Friss, gyros, brutál finom – pont ahogy szereted! Tony Gyros - Keszthely legjobb választása!</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Gyorslinkek</h4>
+                <ul>
+                    <li><a href="index.html">Kezdőlap</a></li>
+                    <li><a href="pizza.html">Pizza rendelés</a></li>
+                    <li><a href="gyros.html">Gyros rendelés</a></li>
+                    <li><a href="kosar.html">Kosár</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Kapcsolat</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Keszthely, Délden tér 2.</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+36301234567">+36 30 123 4567</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@tonygyros.hu">info@tonygyros.hu</a></p>
+            </div>
+            
+            <div class="footer-legal">
+                <h4>Jogi információk</h4>
+                <ul>
+                    <li><a href="aszf.html"><i class="fas fa-file-contract"></i> ÁSZF</a></li>
+                    <li><a href="adatkezeles.html"><i class="fas fa-shield-alt"></i> Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Kövess minket!</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/p/Tony-Gyros-100063732926222/"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Tony Gyros Keszthely. Minden jog fenntartva.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="pizza.js"></script>
+</body>
+</html>
