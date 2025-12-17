@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tony Gyros - Sikeres rendelés">
+    <title>Rendelés sikeres - Tony Gyros Keszthely</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .success-section {
+            padding: 5rem 0;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .success-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #28a745, #2ecc71);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+        }
+        
+        .success-container h1 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .success-container p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .email-notice {
+            background-color: #e8f5e8;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        .email-notice i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+        
+        .order-details {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .order-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .order-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .order-detail.total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        /* Új stílusok a termékek listázásához */
+        .order-items-container {
+            margin-top: 1rem;
+        }
+        
+        .order-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            color: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+        }
+        
+        .item-details {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .item-quantity-price {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.25rem;
+            color: var(--gray);
+        }
+        
+        .item-note {
+            background-color: #f9f9f9;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .item-note i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        /* Extrák megjelenítése */
+        .item-extras {
+            margin-top: 0.25rem;
+            font-size: 0.85rem;
+            color: #666;
+            padding-left: 0.5rem;
+            border-left: 2px solid #ddd;
+        }
+        
+        .success-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Responsive stílusok */
+        @media (max-width: 768px) {
+            .success-section {
+                padding: 3rem 0;
+            }
+            
+            .success-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .success-buttons {
+                flex-direction: column;
+            }
+            
+            .success-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .success-container {
+                padding: 1.5rem;
+            }
+            
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+            
+            .order-detail {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .order-detail span:last-child {
+                font-weight: 500;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="letöltés.png" alt="Tony Gyros Logo">
+                    </div>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Kezdőlap</a></li>
+                    <li><a href="pizza.html"><i class="fas fa-pizza-slice"></i>Pizza rendelés</a></li>
+                    <li><a href="gyros.html"><i class="fas fa-utensils"></i>Gyros rendelés</a></li>
+                    <li><a href="kosar.html"><i class="fas fa-shopping-cart"></i>Kosár <span class="cart-count" id="cartCount">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="success-section">
+        <div class="container">
+            <div class="success-container" id="successContainer">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h1>Köszönjük a rendelésed!</h1>
+                <p>Rendelésed sikeresen rögzítettük. Hamarosan felvesszük veled a kapcsolatot a további részletekről.</p>
+                
+                <div class="email-notice">
+                    <p><i class="fas fa-envelope"></i> <strong>Email értesítés elküldve!</strong> A rendelési adatokat elküldtük a Tony Gyros Keszthely címére és a Te email címedre is.</p>
+                </div>
+                
+                <div class="order-details" id="orderDetails">
+                    <div class="order-detail">
+                        <span>Rendelési információ betöltése...</span>
+                    </div>
+                </div>
+                
+                <p>
+                    <i class="fas fa-phone"></i> Kérdésed van? Hívj minket: 
+                    <a href="tel:+36301234567" style="color: var(--primary); font-weight: 500;">+36 30 123 4567</a>
+                </p>
+                
+                <div class="success-buttons">
+                    <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Vissza a főoldalra
+                    </a>
+                    
+                    <a href="lekovetes.html" class="btn btn-secondary">
+                    <i class="fas fa-pizza-slice"></i> Rendelés követése
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="letöltés.png" alt="Tony Gyros Logo" style="height: 60px; width: auto;">
+                    </div>
+                    <p>Friss, gyros, brutál finom – pont ahogy szereted! Tony Gyros - Keszthely legjobb választása!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Gyorslinkek</h4>
+                    <ul>
+                        <li><a href="index.html">Kezdőlap</a></li>
+                        <li><a href="pizza.html">Pizza rendelés</a></li>
+                        <li><a href="gyros.html">Gyros rendelés</a></li>
+                        <li><a href="kosar.html">Kosár</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Kapcsolat</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Keszthely, Délden tér 2.</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+36301234567">+36 30 123 4567</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@tonygyros.hu">info@tonygyros.hu</a></p>
+                </div>
+                
+                 <div class="footer-legal">
+                    <h4>Jogi információk</h4>
+                    <ul>
+                        <li><a href="aszf.html"><i class="fas fa-file-contract"></i> ÁSZF</a></li>
+                        <li><a href="adatkezeles.html"><i class="fas fa-shield-alt"></i> Adatvédelmi nyilatkozat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Kövess minket!</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/p/Tony-Gyros-100063732926222/"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Tony Gyros Keszthely. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kosár számláló frissítése
+            function updateCartCount() {
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    const cartItems = localStorage.getItem('tonyGyrosCart') ? 
+                        JSON.parse(localStorage.getItem('tonyGyrosCart')) : [];
+                    const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+                    cartCount.textContent = totalItems;
+                }
+            }
+            
+            // Rendelési azonosító generálása
+            function generateOrderId() {
+                const prefix = 'TONY';
+                const timestamp = Date.now().toString().slice(-6);
+                const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                return `${prefix}-${timestamp}-${randomNum}`;
+            }
+            
+            // Dátum formázása magyar nyelven
+            function formatDate(date) {
+                const options = {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                return new Date(date).toLocaleDateString('hu-HU', options);
+            }
+            
+            // Termék név formázása opciókkal - NEM ISMÉTLI AZ AZONOS ELEMEKET
+            function formatProductName(item) {
+                let baseName = item.name || 'Termék';
+                
+                if (item.options) {
+                    const optionsText = formatOptions(item.options);
+                    if (optionsText) {
+                        const baseNameLower = baseName.toLowerCase();
+                        const optionsTextLower = optionsText.toLowerCase();
+                        let shouldAddOptions = true;
+                        
+                        if (baseNameLower.includes('pita gyros') || baseNameLower.includes('gyros')) {
+                            const meat = item.options.meat || '';
+                            const sauce = item.options.sauce || '';
+                            
+                            if (meat && baseNameLower.includes(meat.toLowerCase())) {
+                                baseName = baseName.replace(meat, '').replace('()', '').trim();
+                            }
+                            
+                            if (meat && sauce) {
+                                baseName = `Pita Gyros ${meat} - ${sauce} szósszal`;
+                                shouldAddOptions = false;
+                            } else if (meat) {
+                                baseName = `Pita Gyros ${meat}`;
+                                shouldAddOptions = false;
+                            } else if (sauce) {
+                                baseName = `Pita Gyros - ${sauce} szósszal`;
+                                shouldAddOptions = false;
+                            }
+                        }
+                        
+                        if (baseNameLower.includes('pizza') && !baseNameLower.includes('pita gyros')) {
+                            const optionsParts = optionsText.split(' - ');
+                            const uniqueParts = [];
+                            optionsParts.forEach(part => {
+                                if (!baseNameLower.includes(part.toLowerCase())) {
+                                    uniqueParts.push(part);
+                                }
+                            });
+                            
+                            if (uniqueParts.length > 0) {
+                                baseName += ` (${uniqueParts.join(' - ')})`;
+                            }
+                            shouldAddOptions = false;
+                        }
+                        
+                        if (shouldAddOptions && !baseNameLower.includes(optionsTextLower)) {
+                            baseName += ` (${optionsText})`;
+                        }
+                    }
+                }
+                
+                if (item.size) {
+                    baseName += ` - ${item.size}`;
+                }
+                
+                baseName = baseName.replace(/\s*\(\s*\)/g, ''); 
+                baseName = baseName.replace(/\s*-\s*-/g, '-'); 
+                baseName = baseName.trim();
+                
+                return baseName;
+            }
+            
+            // Opciók formázása
+            function formatOptions(options) {
+                if (!options || typeof options !== 'object') return '';
+                const parts = [];
+                if (options.meat && options.meat.trim() !== '' && !parts.includes(options.meat)) {
+                    parts.push(options.meat);
+                }
+                if (options.sauce && options.sauce.trim() !== '' && !parts.includes(options.sauce)) {
+                    parts.push(options.sauce);
+                }
+                if (options.filling && options.filling.trim() !== '' && !parts.includes(options.filling)) {
+                    parts.push(options.filling);
+                }
+                if (options.extras && Array.isArray(options.extras)) {
+                    options.extras.forEach(extra => {
+                        if (extra && extra.trim() !== '' && !parts.includes(extra)) {
+                            parts.push(extra);
+                        }
+                    });
+                }
+                const uniqueParts = [];
+                parts.forEach(part => {
+                    const lowerPart = part.toLowerCase();
+                    if (!uniqueParts.some(p => p.toLowerCase() === lowerPart)) {
+                        uniqueParts.push(part);
+                    }
+                });
+                return uniqueParts.join(' - ');
+            }
+            
+            // Rendelési információk megjelenítése
+            function displayOrderDetails() {
+                const orderData = localStorage.getItem('tonyGyrosLastOrder');
+                const orderDetails = document.getElementById('orderDetails');
+                
+                if (!orderDetails) return;
+                if (!orderData) {
+                    orderDetails.innerHTML = `<div class="order-detail"><span>Nincs elérhető rendelési információ.</span></div>`;
+                    return;
+                }
+                
+                try {
+                    const order = JSON.parse(orderData);
+                    if (!order.orderId) order.orderId = generateOrderId();
+                    if (!order.timestamp) order.timestamp = Date.now();
+                    if (!order.subtotal || order.subtotal <= 0) order.subtotal = 0;
+                    if (!order.deliveryFee) order.deliveryFee = 0;
+                    if (!order.total) order.total = order.subtotal + order.deliveryFee;
+                    
+                    let detailsHTML = `
+                        <div class="order-detail">
+                            <span>Rendelési szám:</span>
+                            <span><strong style="color: var(--primary);">${order.orderNumber || order.orderId}</strong></span>
+                        </div>
+                        <div class="order-detail">
+                            <span>Rendelés ideje:</span>
+                            <span>${formatDate(order.timestamp)}</span>
+                        </div>
+                    `;
+                    
+                    if (order.deliveryType) {
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>Rendelés módja:</span>
+                                <span>${order.deliveryType === 'delivery' ? '🚚 Kiszállítás' : '🏪 Személyes átvétel'}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    if (order.customerName) {
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>Név:</span>
+                                <span>${order.customerName}</span>
+                            </div>
+                        `;
+                    }
+
+                    // --- EMAIL CÍM MEGJELENÍTÉSE ---
+                    if (order.email) {
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>Email cím:</span>
+                                <span>${order.email}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    if (order.phone) {
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>Telefonszám:</span>
+                                <span>${order.phone}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    if (order.address) {
+                        let displayAddress = order.address;
+                        if (order.floor && order.floor.trim() !== '') {
+                            displayAddress += `, ${order.floor}. emelet`;
+                        }
+                        if (order.door && order.door.trim() !== '') {
+                            displayAddress += `, ${order.door}. ajtó`;
+                        }
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>${order.deliveryType === 'delivery' ? 'Cím:' : 'Átvétel helye:'}</span>
+                                <span style="text-align: right;">${displayAddress}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    if (order.paymentMethod) {
+                        let paymentText = 'Készpénz';
+                        if (order.paymentMethod === 'card') paymentText = '💳 Bankkártya';
+                        detailsHTML += `
+                            <div class="order-detail">
+                                <span>Fizetési mód:</span>
+                                <span>${paymentText}</span>
+                            </div>
+                        `;
+                    }
+                    
+                    if (order.items && Array.isArray(order.items) && order.items.length > 0) {
+                        detailsHTML += `
+                            <div class="order-detail" style="border-top: 2px solid var(--primary); padding-top: 1rem; margin-top: 1rem;">
+                                <span style="font-weight: bold;">Rendelt termékek:</span>
+                                <span></span>
+                            </div>
+                            <div class="order-items-container">
+                        `;
+                        
+                        order.items.forEach((item) => {
+                            const basePrice = item.basePrice || item.price || 0;
+                            const extraCost = item.extraCost || 0;
+                            const unitPrice = parseFloat(basePrice) + parseFloat(extraCost);
+                            const quantity = item.quantity || 1;
+                            const itemTotal = unitPrice * quantity;
+                            const productName = formatProductName(item);
+                            
+                            detailsHTML += `
+                                <div class="order-item">
+                                    <div class="item-name">
+                                        <span>${productName}</span>
+                                        <span>${itemTotal.toLocaleString()} Ft</span>
+                                    </div>
+                                    <div class="item-details">
+                                        <div class="item-quantity-price">
+                                            <span>${quantity} db × ${unitPrice.toLocaleString()} Ft</span>
+                                        </div>
+                            `;
+                            
+                            if (item.extraToppings && Array.isArray(item.extraToppings) && item.extraToppings.length > 0) {
+                                detailsHTML += `<div class="item-extras">`;
+                                item.extraToppings.forEach(extra => {
+                                    detailsHTML += `<div>+ ${extra.name} (+${parseFloat(extra.price).toLocaleString()} Ft)</div>`;
+                                });
+                                detailsHTML += `</div>`;
+                            }
+                            
+                            if (item.specialRequest && item.specialRequest.trim() !== '') {
+                                detailsHTML += `
+                                    <div class="item-note">
+                                        <i class="fas fa-sticky-note"></i>
+                                        <strong>Megjegyzés:</strong> ${item.specialRequest}
+                                    </div>
+                                `;
+                            }
+                            detailsHTML += `</div></div>`;
+                        });
+                        detailsHTML += `</div>`;
+                    }
+                    
+                    detailsHTML += `
+                        <div class="order-detail" style="border-top: 2px solid #ddd; margin-top: 1rem; padding-top: 1rem;">
+                            <span>Részösszeg:</span>
+                            <span>${order.subtotal.toLocaleString()} Ft</span>
+                        </div>
+                    `;
+
+                    if (order.discountTotal && order.discountTotal > 0) {
+                         detailsHTML += `
+                            <div class="order-detail">
+                                <span>Kedvezmény:</span>
+                                <span style="color: #4CAF50;">-${order.discountTotal.toLocaleString()} Ft</span>
+                            </div>
+                        `;
+                    }
+
+                    detailsHTML += `
+                        <div class="order-detail">
+                            <span>Szállítási díj:</span>
+                            <span>${order.deliveryFee.toLocaleString()} Ft</span>
+                        </div>
+                        <div class="order-detail total">
+                            <span>Összesen:</span>
+                            <span style="color: var(--primary);">${order.total.toLocaleString()} Ft</span>
+                        </div>
+                    `;
+                    
+                    if (order.note && order.note.trim() !== '') {
+                        detailsHTML += `
+                            <div class="order-detail" style="margin-top: 1rem; font-style: italic; background-color: #f9f9f9; padding: 1rem; border-radius: 5px;">
+                                <div style="display: block; width: 100%;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 0.5rem; color: var(--primary);">
+                                        <i class="fas fa-comment" style="margin-right: 0.5rem;"></i>
+                                        <strong>Rendelési megjegyzés:</strong>
+                                    </div>
+                                    <div style="text-align: left; color: #666;">"${order.note}"</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    orderDetails.innerHTML = detailsHTML;
+                    
+                } catch (error) {
+                    console.error('Hiba a rendelési adatok betöltésekor:', error);
+                    orderDetails.innerHTML = `<div class="order-detail"><span style="color: #e74c3c;">Hiba történt az adatok betöltésekor.</span></div>`;
+                }
+            }
+            
+            updateCartCount();
+            displayOrderDetails();
+            
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
+                    mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
+                        navMenu.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            localStorage.removeItem('tonyGyrosCart');
+        });
+    </script>
+</body>
+</html>
