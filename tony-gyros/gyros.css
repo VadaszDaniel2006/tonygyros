@@ -1,0 +1,637 @@
+/* Gyros oldal specifikus stílusok */
+
+/* Hero szekció */
+.page-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('https://images.unsplash.com/photo-1621996346565-e3dbc353d2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 6rem 0;
+    text-align: center;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.page-hero .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    max-width: 100%;
+}
+
+.page-hero .hero-tagline {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 100%;
+}
+
+/* Menü szekció */
+.menu-section {
+    padding: 5rem 0;
+    background-color: var(--white);
+}
+
+.menu-notice {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.notice-badge {
+    background-color: var(--white);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.menu-notice p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.menu-notice strong {
+    font-size: 1.3rem;
+}
+
+/* Menü kategória */
+.menu-category {
+    margin-bottom: 4rem;
+}
+
+.category-title {
+    color: var(--secondary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+/* Menü grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+}
+
+.menu-item-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item:hover .menu-item-img img {
+    transform: scale(1.05);
+}
+
+.menu-item-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.menu-item-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-content h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.menu-item-description {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.menu-item-details {
+    margin-bottom: 1.5rem;
+}
+
+/* Mennyiségválasztó stílusok */
+.menu-item-quantity {
+    margin-bottom: 1rem;
+}
+
+.menu-item-quantity label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 150px;
+}
+
+.quantity-btn {
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.quantity-btn:disabled {
+    background-color: var(--gray-light);
+    cursor: not-allowed;
+}
+
+.quantity-input {
+    width: 60px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+/* Opciók */
+.menu-item-options {
+    margin-bottom: 1rem;
+}
+
+.option-group {
+    margin-bottom: 1rem;
+}
+
+.option-label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    border-color: var(--primary);
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+.option input[type="radio"] {
+    margin: 0;
+}
+
+/* ÚJ ÁR MEGJELENÍTÉS STÍLUS (Pizza oldal stílusában - JAVÍTOTT SZÍNEK) */
+.menu-item-price-row {
+    display: flex;
+    justify-content: space-between; /* Két szélre húzva */
+    align-items: center; 
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* A felirat stílusa most már megegyezik az ár stílusával */
+.price-label {
+    font-size: 1.4rem; /* Ugyanaz a méret */
+    color: var(--primary); /* Ugyanaz a KÉK szín */
+    font-weight: 700; /* Vastag betű */
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary); /* KÉK szín */
+    letter-spacing: 0.5px;
+}
+
+.menu-item-actions {
+    margin-top: auto;
+}
+
+.special-request {
+    margin-bottom: 1rem;
+}
+
+.special-request textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 60px;
+    font-family: inherit;
+}
+
+.special-request textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+/* Italok szekció */
+.drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.drink-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: var(--light);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.drink-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.drink-quantity {
+    min-width: 120px;
+}
+
+.drink-quantity label {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.drink-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.drink-name {
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.drink-price {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.add-drink-btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.add-drink-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px rgba(0, 102, 204, 0.3);
+}
+
+/* Gyros információk */
+.gyros-info {
+    padding: 4rem 0;
+    background-color: var(--light);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 51, 102, 0.15);
+}
+
+.info-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.info-card h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.info-card p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* Reszponzív design */
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-hero .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-notice {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .drinks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drink-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .drink-quantity {
+        min-width: 100%;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .option {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .menu-item {
+        margin: 0 -1rem;
+        border-radius: 0;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-title {
+        font-size: 1.6rem;
+    }
+}
+/* --- KEDVEZMÉNY STÍLUSOK --- */
+
+/* Ha aktív a kedvezmény ezen a terméken */
+.price-value.discount-active {
+    color: #27ae60 !important; /* Zöld szín */
+    font-weight: 800;
+}
+
+/* Ha a kedvezményt jelezzük szöveggel */
+.discount-badge {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 10px;
+    vertical-align: middle;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- KOSÁR ÉRTESÍTŐ ABLAK (POP-UP) --- */
+.cart-notification {
+    position: fixed;
+    top: 100px; /* A fejléc alatt jelenik meg */
+    right: 20px;
+    /* Ugyanaz a gradient, mint a menu-notice-nál */
+    background: linear-gradient(135deg, var(--primary), var(--accent)); 
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3); /* Kékes árnyék */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10000;
+    
+    /* Animáció kezdőállapota (képernyőn kívül) */
+    transform: translateX(150%);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Ruganyos érkezés */
+    
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    max-width: 320px;
+    border-left: 5px solid rgba(255, 255, 255, 0.3); /* Finom bal oldali díszcsík */
+}
+
+/* Amikor megjelenik (JavaScript adja hozzá ezt a class-t) */
+.cart-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Az ikon stílusa az értesítőben */
+.cart-notification i {
+    font-size: 1.4rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Az üzenet szövege */
+.cart-notification span {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Mobil nézet */
+@media (max-width: 480px) {
+    .cart-notification {
+        top: auto;
+        bottom: 20px; /* Mobilon alulra tesszük, kényelmesebb */
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        justify-content: center;
+    }
+}
